@@ -1,6 +1,9 @@
 import { Apple } from "lucide-react";
 import { motion } from "motion/react";
-import heroMap from "../assets/hero-map.png"; // ← 新しく追加した実画像
+
+// 画像を local assets から読み込む
+import heroMapBack from "../assets/hero-map.png";     // 後ろのスマホ
+import heroMapFront from "../assets/hero-map2.png";   // 前のスマホ
 
 export function HeroSection() {
   return (
@@ -11,18 +14,22 @@ export function HeroSection() {
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+
           {/* Left side - Text content */}
           <div className="space-y-6 sm:space-y-8 text-center lg:text-left order-2 lg:order-1">
             <div className="space-y-4 sm:space-y-6">
               <div className="inline-block px-4 sm:px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full border-2 border-white/40">
                 <span className="text-white text-sm sm:text-base">新しいグルメ発見体験</span>
               </div>
+
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white drop-shadow-lg leading-tight">
                 ”人”で探す、<br />おいしい地図。
               </h1>
+
               <p className="text-lg sm:text-xl lg:text-2xl text-white/95 max-w-xl mx-auto lg:mx-0">
                 信頼できるあの人の「推しメシ」を、マップで見つけよう。
               </p>
+
               <p className="text-base sm:text-lg text-white/80">
                 SNSの"リアルな今"をもとに、信頼できる人のおすすめだけをまとめたグルメマップアプリ。
               </p>
@@ -47,7 +54,7 @@ export function HeroSection() {
           <div className="relative flex justify-center lg:justify-end h-[400px] sm:h-[500px] lg:h-[600px] order-1 lg:order-2">
             <div className="relative w-full max-w-[350px] sm:max-w-[400px] lg:max-w-[450px]">
               
-              {/* Back Phone - 推し画面（あなたの hero-map.png に差し替え） */}
+              {/* Back Phone - 推し画面 */}
               <motion.div 
                 className="absolute top-6 sm:top-8 left-0 sm:left-4 w-[180px] sm:w-[240px] lg:w-[280px] h-[360px] sm:h-[480px] lg:h-[560px] z-10"
                 initial={{ opacity: 0, y: 60, scale: 0.9 }}
@@ -55,26 +62,50 @@ export function HeroSection() {
                 transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className="absolute inset-0 bg-gray-900 rounded-[2rem] sm:rounded-[3rem] shadow-2xl">
+                  {/* notch */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 sm:w-28 h-5 sm:h-6 bg-gray-900 rounded-b-2xl sm:rounded-b-3xl z-20" />
 
+                  {/* screen */}
                   <div className="absolute inset-1.5 sm:inset-2 bg-white rounded-[1.75rem] sm:rounded-[2.5rem] overflow-hidden">
                     <img
-                      src={heroMap}
-                      alt="推しメシアプリのマップ画面"
-                      className="w-full h-full object-cover object-top"
+                      src={heroMapBack}
+                      alt="推しメシアプリの推し画面"
+                      className="w-full h-full object-cover"
                     />
                   </div>
-
-                  <div className="absolute bottom-1.5 sm:bottom-2 left-1/2 -translate-x-1/2 w-20 sm:w-28 h-1 sm:h-1.5 bg-white/20 rounded-full z-20" />
                 </div>
 
                 <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-[2rem] sm:rounded-[3rem] blur-2xl -z-10" />
               </motion.div>
 
-              {/* Front Phone - (元の appScreenImage を今後必要に応じ差し替え) */}
-              {/* 今は appScreenImage を削除し、heroMap を使っても良いですが、まずは片方だけ差し替えます */}
+              {/* Front Phone - マップ画面（メイン） */}
+              <motion.div 
+                className="absolute top-0 right-0 sm:right-4 w-[200px] sm:w-[260px] lg:w-[300px] h-[400px] sm:h-[520px] lg:h-[600px] z-20"
+                initial={{ opacity: 0, y: 80, scale: 0.85 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 1.2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <div className="absolute inset-0 bg-gray-900 rounded-[2rem] sm:rounded-[3rem] shadow-2xl">
+                  
+                  {/* notch */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 sm:w-32 h-5 sm:h-7 bg-gray-900 rounded-b-2xl sm:rounded-b-3xl z-20" />
+                  
+                  {/* screen */}
+                  <div className="absolute inset-1.5 sm:inset-2 bg-white rounded-[1.75rem] sm:rounded-[2.5rem] overflow-hidden">
+                    <img
+                      src={heroMapFront}  // ← これで2台目のスマホが復活！
+                      alt="推しメシアプリのマップ画面（フロント）"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+
+                <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent rounded-[2rem] sm:rounded-[3rem] blur-2xl -z-10" />
+              </motion.div>
+
             </div>
           </div>
+
         </div>
       </div>
     </section>
