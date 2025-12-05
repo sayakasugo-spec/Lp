@@ -1,7 +1,6 @@
 import { Apple } from "lucide-react";
 import { motion } from "motion/react";
-import appScreenImage from "figma:asset/3b65e57d7410467c78ff3ef03094b9ad12c54c27.png";
-import appScreenImage2 from "figma:asset/66844f327535360533d787bdec9ae2fe1643b6bf.png";
+import heroMap from "../assets/hero-map.png"; // ← 新しく追加した実画像
 
 export function HeroSection() {
   return (
@@ -47,71 +46,33 @@ export function HeroSection() {
           {/* Right side - Phone mockups */}
           <div className="relative flex justify-center lg:justify-end h-[400px] sm:h-[500px] lg:h-[600px] order-1 lg:order-2">
             <div className="relative w-full max-w-[350px] sm:max-w-[400px] lg:max-w-[450px]">
-              {/* Back Phone - 推し画面 */}
+              
+              {/* Back Phone - 推し画面（あなたの hero-map.png に差し替え） */}
               <motion.div 
                 className="absolute top-6 sm:top-8 left-0 sm:left-4 w-[180px] sm:w-[240px] lg:w-[280px] h-[360px] sm:h-[480px] lg:h-[560px] z-10"
                 initial={{ opacity: 0, y: 60, scale: 0.9 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ 
-                  duration: 1, 
-                  delay: 0.3,
-                  ease: [0.22, 1, 0.36, 1] // Custom easing for smooth "float up" effect
-                }}
+                transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
               >
-                {/* Phone border/frame */}
                 <div className="absolute inset-0 bg-gray-900 rounded-[2rem] sm:rounded-[3rem] shadow-2xl">
-                  {/* Notch */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 sm:w-28 h-5 sm:h-6 bg-gray-900 rounded-b-2xl sm:rounded-b-3xl z-20" />
-                  
-                  {/* Screen */}
-                  <div className="absolute inset-1.5 sm:inset-2 bg-white rounded-[1.75rem] sm:rounded-[2.5rem] overflow-hidden">
-                    <img
-                      src={appScreenImage2}
-                      alt="推しメシアプリの推し画面"
-                      className="w-full h-full object-cover object-top"
-                    />
-                  </div>
-                  
-                  {/* Home indicator */}
-                  <div className="absolute bottom-1.5 sm:bottom-2 left-1/2 -translate-x-1/2 w-20 sm:w-28 h-1 sm:h-1.5 bg-white/20 rounded-full z-20" />
-                </div>
-                
-                {/* Glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-[2rem] sm:rounded-[3rem] blur-2xl -z-10" />
-              </motion.div>
 
-              {/* Front Phone - マップ画面（メイン） */}
-              <motion.div 
-                className="absolute top-0 right-0 sm:right-4 w-[200px] sm:w-[260px] lg:w-[300px] h-[400px] sm:h-[520px] lg:h-[600px] z-20"
-                initial={{ opacity: 0, y: 80, scale: 0.85 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ 
-                  duration: 1.2, 
-                  delay: 0.5,
-                  ease: [0.22, 1, 0.36, 1]
-                }}
-              >
-                {/* Phone border/frame */}
-                <div className="absolute inset-0 bg-gray-900 rounded-[2rem] sm:rounded-[3rem] shadow-2xl">
-                  {/* Notch */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 sm:w-32 h-5 sm:h-7 bg-gray-900 rounded-b-2xl sm:rounded-b-3xl z-20" />
-                  
-                  {/* Screen */}
                   <div className="absolute inset-1.5 sm:inset-2 bg-white rounded-[1.75rem] sm:rounded-[2.5rem] overflow-hidden">
                     <img
-                      src={appScreenImage}
+                      src={heroMap}
                       alt="推しメシアプリのマップ画面"
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
-                  
-                  {/* Home indicator */}
-                  <div className="absolute bottom-1.5 sm:bottom-2 left-1/2 -translate-x-1/2 w-24 sm:w-32 h-1 sm:h-1.5 bg-white/20 rounded-full z-20" />
+
+                  <div className="absolute bottom-1.5 sm:bottom-2 left-1/2 -translate-x-1/2 w-20 sm:w-28 h-1 sm:h-1.5 bg-white/20 rounded-full z-20" />
                 </div>
-                
-                {/* Glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent rounded-[2rem] sm:rounded-[3rem] blur-2xl -z-10" />
+
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-[2rem] sm:rounded-[3rem] blur-2xl -z-10" />
               </motion.div>
+
+              {/* Front Phone - (元の appScreenImage を今後必要に応じ差し替え) */}
+              {/* 今は appScreenImage を削除し、heroMap を使っても良いですが、まずは片方だけ差し替えます */}
             </div>
           </div>
         </div>
