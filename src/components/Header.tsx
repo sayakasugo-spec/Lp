@@ -1,5 +1,7 @@
 import { motion } from "motion/react";
-import logoImg from "figma:asset/f863ab353ec2f13431edd9b264abd46f41cb7b4a.png";
+
+// ローカルのロゴ画像を読み込む（GitHub にアップしたもの）
+import logoImg from "../assets/oshimeshi_logo_type_a.png";
 
 export function Header() {
   return (
@@ -11,14 +13,16 @@ export function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
+          
           {/* Logo */}
-          <a href="#" className="flex items-center">
+          <a href="/" className="flex items-center">
             <img 
               src={logoImg} 
-              alt="推しメシ" 
-              className="h-8 sm:h-10 w-auto"
+              alt="推しメシ ロゴ" 
+              className="h-8 sm:h-10 w-auto object-contain"
             />
           </a>
+
         </div>
       </div>
     </motion.header>
